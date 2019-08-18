@@ -2,6 +2,11 @@
 var express = require('express');
 var path = require('path');
 
+// Use Express rooter - see:
+// https://medium.com/@cmpbilge/routing-with-nodejs-express-4ce79752e146
+var router = express.Router();
+
+var rootRoutes = require('./routes/htmlRoutes.js');
 
 // Sets up the Express App
 var app = express();
