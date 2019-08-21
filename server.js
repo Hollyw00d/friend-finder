@@ -11,8 +11,18 @@ var PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// get an instance of router
+var router = express.Router();
 
+// Grabs module.exports for HTML routes
+var htmlRoutes = require('./routing/htmlRoutes');
+// Home page (/) route
+htmlRoutes.homePageRoute(router);
+// Survey page (/survey) route
+htmlRoutes.surveyPageRoute(router);
 
+// apply the routes to our application
+app.use('/', router);
 
 // Starts the server to begin listening
 app.listen(PORT, function() {
