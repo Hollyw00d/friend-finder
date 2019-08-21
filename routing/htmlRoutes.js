@@ -1,17 +1,17 @@
 var express = require('express');
 
-// Home page route
+// Home page route (/)
 function homePageRoute(router) {
     router.get('/', function(req, res) {
         res.send('Home page!');  
     });    
 }
 
-// Survey page route
+// Survey page route (/survey)
 function surveyPageRoute(router) {
-        router.get('/survey', function(req, res) {
-            res.send('Survey page!');  
-        });  
+    router.get('/survey', function(req, res) {
+        res.send('Survey page!');  
+    });  
 }
 
 module.exports = {
