@@ -11,7 +11,22 @@ function allFriendsRoute(router, friendsArrOfObjects) {
 function addNewFriend(router, friendsArrOfObjects) {
     router.post('/api/friends', function(req, res) {
         var newFriend = req.body;
-        console.log(newFriend);
+
+        var newFriendScores = newFriend.scores.map(function(score) {
+            return parseInt(score);
+        });
+
+        var friendsArrObjMatchScore = [];
+
+        friendsArrOfObjects.map(function(currentFriend, index) {
+            friendsArrObjMatchScore.push({
+                name: currentFriend.name,
+                matchScore: Math.abs(newFriendScores[index] - currentFriend.scores[index])
+            });
+        });    
+        
+        console.log(friendsArrObjMatchScore);
+
         friendsArrOfObjects.push(newFriend);
         res.json(friendsArrOfObjects);
     });
