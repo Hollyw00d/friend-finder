@@ -21,9 +21,14 @@ htmlRoutes.homePageRoute(router, path);
 // Survey page (/survey) route
 htmlRoutes.surveyPageRoute(router, path);
 
-// All Friends route (/)
+// Get all friends array of objects
+var allFriends = require('./app/data/friends')
+
 var apiRoutes = require('./routing/apiRoutes');
-apiRoutes.allFriendsRoute(router, path);
+// GET all friends (/api/friends)
+apiRoutes.allFriendsRoute(router, allFriends);
+// POST new friend to (/api/friends)
+apiRoutes.addNewFriend(router, allFriends);
 
 // apply the routes to our application
 app.use('/', router);

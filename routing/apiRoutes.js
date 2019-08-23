@@ -1,12 +1,23 @@
-// Survey of friends API route
+// GET survey of friends API route
 // (/api/friends)
-function allFriendsRoute(router, path) {
-    router.get('/api/friends', function(req, res) {
-        //res.sendFile(path.join(process.cwd() + '/app/public', 'home.html'));  
-        res.sendFile(path.join(process.cwd() + '/app/data', 'friends.js'));
+function allFriendsRoute(router, friendsArrOfObjects) {
+    router.get('/api/friends', function(req, res) { 
+        res.json(friendsArrOfObjects);
     });
 }
 
+// POST survey of friends API route (/api/friends)
+// to add new friend to array of objects
+function addNewFriend(router, friendsArrOfObjects) {
+    router.post('/api/friends', function(req, res) {
+        var newFriend = req.body;
+        friendsArrOfObjects.push(newFriend);
+        res.json(friendsArrOfObjects);
+    });
+}
+
+
 module.exports = {
-    allFriendsRoute
+    allFriendsRoute,
+    addNewFriend
 };
