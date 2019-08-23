@@ -17,9 +17,9 @@ var router = express.Router();
 // Grabs module.exports for HTML routes
 var htmlRoutes = require('./routing/htmlRoutes');
 // Home page (/) route
-htmlRoutes.homePageRoute(router);
+htmlRoutes.homePageRoute(router, path);
 // Survey page (/survey) route
-htmlRoutes.surveyPageRoute(router);
+htmlRoutes.surveyPageRoute(router, path);
 
 // apply the routes to our application
 app.use('/', router);
