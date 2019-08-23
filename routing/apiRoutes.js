@@ -11,6 +11,7 @@ function allFriendsRoute(router, friendsArrOfObjects) {
 function addNewFriend(router, friendsArrOfObjects) {
     router.post('/api/friends', function(req, res) {
         var newFriend = req.body;
+        console.log(newFriend);
         friendsArrOfObjects.push(newFriend);
         res.json(friendsArrOfObjects);
     });
