@@ -8,7 +8,7 @@ function homePageRoute(router, path) {
 // Survey page route (/survey)
 function surveyPageRoute(router, path) {
     router.get('/survey', function(req, res) {
-        res.send('Survey page!');  
+        res.sendFile(path.join(process.cwd() + '/app/public', 'survey.html'));  
     });  
 }
 
