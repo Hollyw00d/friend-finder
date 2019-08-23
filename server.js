@@ -21,6 +21,10 @@ htmlRoutes.homePageRoute(router, path);
 // Survey page (/survey) route
 htmlRoutes.surveyPageRoute(router, path);
 
+// All Friends route (/)
+var apiRoutes = require('./routing/apiRoutes');
+apiRoutes.allFriendsRoute(router, path);
+
 // apply the routes to our application
 app.use('/', router);
 
