@@ -23,13 +23,33 @@ function addNewFriend(router, friendsArrOfObjects) {
                  return Math.abs(val - newFriendScores[index]) + acc;
             });
 
-            friendsArrObjMatchScore.push({
-                name: currentFriend.name,
-                matchScore: friendMatchValue
-            });
-        });    
+            var currentFriendName = currentFriend.name;
+            var currentFriendPhoto = currentFriend.photo;
+
+            friendsArrObjMatchScore.push([
+                friendMatchValue, {
+                    currentFriendName,
+                    currentFriendPhoto
+                }
+            ]);
+        });
         
-        console.log(friendsArrObjMatchScore);
+
+        var friendsArrObjMatchScoreSorted = friendsArrObjMatchScore.sort(function(a, b) {
+            return a[0] - b[0];
+        });
+
+        var chosenFriend = friendsArrObjMatchScoreSorted[0];
+
+        // console.log(chosenFriend[1].currentFriendName);
+
+        // console.log(chosenFriend[1].currentFriendPhoto);
+
+        newFriend.newFriend = {
+            chosenFriendName: chosenFriend[1].currentFriendName,
+            chosenFriendPhoto: chosenFriend[1].currentFriendPhoto
+        };
+
 
         friendsArrOfObjects.push(newFriend);
         res.json(friendsArrOfObjects);
