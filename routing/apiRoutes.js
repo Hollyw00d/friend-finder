@@ -18,10 +18,14 @@ function addNewFriend(router, friendsArrOfObjects) {
 
         var friendsArrObjMatchScore = [];
 
-        friendsArrOfObjects.map(function(currentFriend, index) {
+        friendsArrOfObjects.map(function(currentFriend) {
+            var friendMatchValue = currentFriend.scores.reduce(function(acc, val, index) {
+                 return Math.abs(val - newFriendScores[index]) + acc;
+            });
+
             friendsArrObjMatchScore.push({
                 name: currentFriend.name,
-                matchScore: Math.abs(newFriendScores[index] - currentFriend.scores[index])
+                matchScore: friendMatchValue
             });
         });    
         

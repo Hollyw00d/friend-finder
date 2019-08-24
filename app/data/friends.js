@@ -148,7 +148,7 @@ var friends = [
             name: "Samoa Joe",
             photo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Samoa_Joe_2017.jpg/800px-Samoa_Joe_2017.jpg",
             scores: [
-                2,
+                1,
                 1,
                 1,
                 1,
